@@ -1,31 +1,30 @@
+"use client";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
-import Technologies from "@/components/Technologies";
 import Contact from "@/components/Contact";
-import MobileFallback from "@/components/MobileFallback";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
+import Achievements from "@/components/Achievements";
+import SpaceBackground from "@/components/SpaceBackground";
+import Technologies from "@/components/Technologies";
 
 export default function Home() {
   return (
-    <main>
-      {/* Mobile Fallback: Hidden on medium and larger screens */}
-      <div className="md:hidden">
-        <MobileFallback />
-      </div>
-
-      {/* Desktop Content: Hidden on small screens, visible on medium and larger screens */}
-      <div className="hidden md:block">
+    <main className="flex min-h-screen flex-col items-center justify-between">
+        <SpaceBackground />
         <Hero />
-        <About />
-        <Experience />
-        <Education />
-        <Projects />
-        <Technologies />
-        <Contact />
-        {/* Parallax scrolling will be implemented in these sections later */}
-      </div>
+        <div className="relative z-10 w-full">
+          <About />
+          <Technologies />
+          <Experience />
+          <Projects />
+          
+          <Achievements />
+         
+          <Education />
+          <Contact />
+        </div>
     </main>
   );
 }

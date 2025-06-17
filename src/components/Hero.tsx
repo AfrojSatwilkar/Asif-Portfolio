@@ -1,143 +1,151 @@
 'use client';
 
 import React from 'react';
-import CodeRainBackground from './CodeRainBackground';
-import { Github, Instagram, Linkedin } from 'lucide-react';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { ArrowDown, Linkedin, Link as LinkIcon, Instagram } from 'lucide-react';
+import { profileData, socialMediaLinks } from '@/data/portfolioData';
+import Link from 'next/link';
 
 const Hero = () => {
-  const headline = "Hello, I'm Arun";
-  const tagline = "Creative Frontend Developer | Modern & Intuitive Web Experiences";
+  const nameParts = profileData.name.replace(",", "").split(" ");
+  const firstName = nameParts.slice(1, nameParts.length - 1).join(" ");
+  const lastName = nameParts[nameParts.length - 1];
 
-  const devCharacters = 
-    "const function async await => {} [] () : Widget build StatelessWidget StatefulWidget Future<void> " +
-    "import export default class interface type new return if else for while true false null undefined " +
-    "React.FC useState useEffect useRef useCallback useMemo useContext useReducer <div/> <span/> <p/> " +
-    "NextPage GetServerSideProps GetStaticProps App Router API Route Middleware Edge Functions " +
-    "TailwindCSS @apply theme extend plugins JIT AOT Flutter Dart Material Cupertino BLoC Provider Riverpod " +
-    "setState build(BuildContext context) Scaffold AppBar Text Center Column Row Stack Padding Image.asset " +
-    "010101011100101010111101010101010000111101010101010101<λ> ()=> γ Σ α β ƒ π ∞ ≠ ≤ ≥ ≈ Δ";
+  const titleWords = (profileData.title1 + ' & ' + profileData.title2).split(' ');
 
-  // Placeholder URLs - replace with your actual links
-  const socialLinks = {
-    linkedin: "https://www.instagram.com/infamous_fluky?igsh=MWQ4MTUzbjFibTM2MA==",
-    instagram: "https://www.linkedin.com/in/imarunjnv/",
-    github: "https://github.com/arun2github",
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const textX = useTransform(x, (latest) => latest * 0.1);
+  const textY = useTransform(y, (latest) => latest * 0.1);
+  const iconsX = useTransform(x, (latest) => latest * 0.05);
+  const iconsY = useTransform(y, (latest) => latest * 0.05);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct * 50); // Adjust multiplier for sensitivity
+    y.set(yPct * 50);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  const socialIcons = {
+    linkedin: <Linkedin size={28} />,
+    github: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="currentColor"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>,
+    instagram: <Instagram size={28} />,
   };
 
   return (
-    <section 
+    <motion.section 
       id="hero"
-      className="relative h-screen flex flex-col items-center justify-center overflow-hidden text-white bg-[#1A1D24]" // New dark background
+      className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
-      <CodeRainBackground 
-        textColor="#535C91" // Updated CodeRainBackground text color
-        trailColor="rgba(26, 29, 36, 0.1)" // Trail color based on new bg, slightly more opaque for subtlety
-        fontSize={15} // Slightly increased font size
-        characters={devCharacters}
-        animationFPS={20} // Slower animation (20 frames per second)
-      />
       
-      {/* <Hero3DScene 
-        numShapes={35}          // Number of small 3D shapes
-        spread={7}              // How far out the shapes can spread
-        baseColor="#4FD1C5"     // Color for the wireframes and subtle lighting
-        baseRotationSpeed={0.0015} // Base speed for individual shape rotation
-      /> */} {/* Removed */}
-
-      <div className="relative z-20 flex flex-col items-center text-center p-4 sm:p-8 max-w-4xl mx-auto">
-        <div className="mb-6 animate-fadeInUp delay-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold">
-          {(() => {
-            const nameToStyle = "Arun";
-            const nameIndex = headline.indexOf(nameToStyle);
-
-            if (nameIndex === -1) { // Name not found, render normally
-              return headline.split("").map((char, index) => (
-                <span 
-                  key={index} 
-                  className="inline-block char-animate"
-                  style={{ animationDelay: `${index * 0.05}s` }}
+      <motion.div 
+        className="relative z-10 text-center text-white p-4"
+        style={{ x: textX, y: textY }}
+        transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+      >
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight">
+          <span className="block mb-2">
+            {firstName.split('').map((char, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 20, delay: index * 0.05 }}
+                className="inline-block"
+              >
+                {char}
+              </motion.span>
+            ))}
+            <span className="text-cyan-400">
+              {lastName.split('').map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ type: 'spring', stiffness: 100, damping: 20, delay: (firstName.length + index) * 0.05 }}
+                  className="inline-block"
                 >
-                  {char === ' ' ? '\u00A0' : char}
-                </span>
-              ));
-            }
+                  {char}
+                </motion.span>
+              ))}
+            </span>
+          </span>
+        </h1>
 
-            const elements = [];
-            // Part before the name
-            for (let i = 0; i < nameIndex; i++) {
-              elements.push(
-                <span 
-                  key={`before-${i}`} 
-                  className="inline-block char-animate"
-                  style={{ animationDelay: `${i * 0.05}s` }}
-                >
-                  {headline[i] === ' ' ? '\u00A0' : headline[i]}
-                </span>
-              );
-            }
-
-            // Styled name part
-            elements.push(
-              <span key="namePart" className="inline-block">
-                {nameToStyle.split("").map((nameChar, nameCharIndex) => (
-                  <span 
-                    key={`name-${nameCharIndex}`} 
-                    className="char-animate bg-clip-text text-transparent bg-gradient-to-r from-violet-200 via-fuchsia-300 to-indigo-300 drop-shadow-lg"
-                    style={{ animationDelay: `${(nameIndex + nameCharIndex) * 0.05}s` }}
-                  >
-                    {nameChar}
-                  </span>
-                ))}
-              </span>
-            );
-
-            // Part after the name
-            for (let i = nameIndex + nameToStyle.length; i < headline.length; i++) {
-              elements.push(
-                <span 
-                  key={`after-${i}`} 
-                  className="inline-block char-animate"
-                  style={{ animationDelay: `${i * 0.05}s` }}
-                >
-                  {headline[i] === ' ' ? '\u00A0' : headline[i]}
-                </span>
-              );
-            }
-            return elements;
-          })()}
-        </div>
-        <p 
-          className="text-xl sm:text-2xl md:text-3xl text-neutral-300 mb-10 animate-fadeInUp" // Brighter text for tagline
-          style={{ animationDelay: `${headline.length * 0.05 + 0.4}s` }}
+        <motion.p 
+          className="mt-4 text-lg md:text-2xl text-neutral-300 max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, duration: 0.8 }}
         >
-          {tagline}
-        </p>
-        <a 
-          href="#projects"
-          className="group relative px-8 py-3 bg-[#535C91] text-white font-semibold rounded-lg text-lg 
-                     overflow-hidden shadow-lg transform transition-all duration-300 
-                     hover:shadow-2xl hover:scale-105 
-                     animate-fadeInUp"
-          style={{ animationDelay: `${headline.length * 0.05 + 0.9}s` }}
+          {titleWords.map((word, index) => (
+            <span key={index} className="inline-block mr-2.5">
+              {word}
+            </span>
+          ))}
+        </motion.p>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.8 }}
+          className="mt-12"
         >
-          <span className="absolute inset-0 w-0 bg-[#7E8CE0] transition-all duration-[350ms] ease-out group-hover:w-full"></span>
-          <span className="relative group-hover:text-white transition-colors duration-300">View My Work</span>
-        </a>
-      </div>
+          <Link
+            href="#projects"
+            className="group relative inline-block text-lg font-semibold"
+          >
+            <span className="relative z-10 px-8 py-3 text-white bg-black/50 border border-cyan-400/50 rounded-lg backdrop-blur-sm transition-all duration-300 group-hover:bg-cyan-400/20 group-hover:border-cyan-400/80 group-hover:shadow-cyan-500/50 group-hover:shadow-lg">
+              View My Work
+            </span>
+          </Link>
+        </motion.div>
+      </motion.div>
 
-      {/* Social Icons - Bottom Right */}
-      <div className="absolute bottom-8 right-8 z-30 flex space-x-4">
-        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors duration-300">
-          <Linkedin size={28} />
-        </a>
-        <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors duration-300">
-          <Instagram size={28} />
-        </a>
-        <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors duration-300">
-          <Github size={28} />
-        </a>
-      </div>
-    </section>
+      {/* Social Icons */}
+      <motion.div
+        className="absolute bottom-8 right-8 z-20"
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 2, duration: 0.8 }}
+      >
+        <motion.div 
+          className="flex space-x-5 text-white" 
+          style={{ x: iconsX, y: iconsY }}
+          transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+        >
+          {socialMediaLinks.map((social) => (
+            <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 transition-colors duration-300">
+              {socialIcons[social.name.toLowerCase() as keyof typeof socialIcons] || <LinkIcon size={28} />}
+            </a>
+          ))}
+        </motion.div>
+      </motion.div>
+
+      {/* Scroll Down Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2.5, duration: 0.8, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
+      >
+        <ArrowDown className="text-neutral-400" />
+      </motion.div>
+    </motion.section>
   );
 };
 
