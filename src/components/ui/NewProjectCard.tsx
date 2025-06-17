@@ -44,10 +44,13 @@ const NewProjectCard: React.FC<NewProjectCardProps> = ({ project }) => {
         </div>
         {(project.liveLink || project.sourceCodeLink) && (
           <div className="mt-4 flex justify-end">
-            <Link href={project.liveLink || project.sourceCodeLink || '#'} passHref>
-              <a target="_blank" rel="noopener noreferrer" className="flex items-center text-sm font-semibold text-cyan-400 hover:text-white transition-colors duration-300">
-                View Project <ExternalLink size={16} className="ml-1.5" />
-              </a>
+            <Link 
+              href={project.liveLink || project.sourceCodeLink || '#'} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center text-sm font-semibold text-cyan-400 hover:text-white transition-colors duration-300"
+            >
+              View Project <ExternalLink size={16} className="ml-1.5" />
             </Link>
           </div>
         )}

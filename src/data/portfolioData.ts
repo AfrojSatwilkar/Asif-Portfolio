@@ -119,6 +119,11 @@ export interface Achievement {
   imageUrl: string;
 }
 
+export interface OpenToItem {
+    text: string;
+    icon?: string;
+}
+
 // --- DATA ---
 
 export const profileData: ProfileData = {
@@ -303,7 +308,25 @@ export const projects: Project[] = [
     ],
     imageUrl: "/images/projects/ca-portal.png", // Provide image
     technologiesUsed: ["Laravel", "JavaScript", "HTML", "CSS"],
-  }
+  },
+  
+  {
+    id: "tura-portal",
+    title: "Tura Municipal Board",
+    description: "The Tura Municipal Board website is a government portal developed using Flutter, designed to streamline form submissions and approvals. The platform features a multi-step approval system where user-submitted forms undergo two rounds of validation before final approval. If a payment is required, users can securely complete transactions via the integrated SBI ePay gateway before printing the approved form. The website enhances administrative efficiency by automating workflows and providing a user-friendly interface for citizens and government officials.",
+    shortDescription: "Flutter-based government portal for Tura Municipal Board with form submission, multi-level approval, and SBI ePay integration.",
+    category: "Web Application",
+    tags: [
+        { name: "Laravel", color: "blue-text-gradient" },
+        { name: "Api", color: "green-text-gradient" },
+        { name: "Sbi payment gateway", color: "pink-text-gradient" },
+        
+    ],
+    imageUrl: "/images/tura_login.PNG",// Provide image
+    liveLink: "https://turamunicipalboard.com/home",
+    technologiesUsed: ["Laravel", "Api", "Sbi payment gateway"],
+  },
+ 
 ];
 
 export const socialMediaLinks: SocialMediaLink[] = [
@@ -315,16 +338,16 @@ export const socialMediaLinks: SocialMediaLink[] = [
   {
     name: "GitHub",
     iconUrl: "/images/social/github.svg", // Provide icon
-    url: "https://github.com/afrozsatwilkar", // Assuming username, please verify
+    url: "https://github.com/AfrojSatwilkar", // Assuming username, please verify
   },
   {
     name: "Instagram",
     iconUrl: "/images/social/instagram.svg", // Provide icon
-    url: "https://www.instagram.com/afroj_satwilkar_/",
+    url: "https://www.instagram.com/mr_afroz01?igsh=bGdrNDhlYnpvZzFk&utm_source=qr",
   },
 ];
 
-export const testimonials: any[] = []; // No testimonials in resume
+// export const testimonials: any[] = []; // No testimonials in resume
 
 // --- FONTS (Informational, not directly used by Next.js like this) ---
 export const fonts = {
@@ -372,6 +395,3 @@ export const achievements: Achievement[] = [
   },
 ];
 
-export interface OpenToItem {
-    icon?: string;
-} 

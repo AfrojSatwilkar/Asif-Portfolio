@@ -58,8 +58,12 @@ const Contact = () => {
       } else {
         throw new Error(data.error || 'Something went wrong.');
       }
-    } catch (error: any) {
-      setStatus({ submitting: false, success: false, error: true, message: error.message || 'Failed to send message.' });
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            setStatus({ submitting: false, success: false, error: true, message: error.message || 'Failed to send message.' });
+        } else {
+            setStatus({ submitting: false, success: false, error: true, message: 'An unknown error occurred.' });
+        }
     }
   };
 
@@ -94,7 +98,7 @@ const Contact = () => {
 
             {profileData.openTo && profileData.openTo.length > 0 && (
               <div> 
-                <h4 className="text-2xl font-bold text-cyan-400 mb-4">I'm Open To</h4>
+                <h4 className="text-2xl font-bold text-cyan-400 mb-4">I&apos;m Open To</h4>
                 <div className="space-y-3">
                   {profileData.openTo.map((item, index) => {
                     const iconName = (item.icon || 'default').toLowerCase();
