@@ -1,23 +1,24 @@
 'use client';
 import React from 'react';
 import { profileData } from '@/data/portfolioData';
-import { Download, Code2, Palette, Server } from 'lucide-react';
+import { Download } from 'lucide-react';
+// import { Download, Code2, Palette, Server } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const skillIconMap: { [key: string]: React.ReactNode } = {
-  html: <Code2 size={20} className="text-orange-400" />,
-  css: <Palette size={20} className="text-blue-400" />,
-  javascript: <Code2 size={20} className="text-yellow-400" />,
-  jquery: <Code2 size={20} className="text-blue-500" />,
-  php: <Server size={20} className="text-indigo-400" />,
-  laravel: <Server size={20} className="text-red-500" />,
-  java: <Code2 size={20} className="text-red-400" />,
-  springboot: <Server size={20} className="text-green-400" />,
-  mysql: <Server size={20} className="text-blue-600" />,
-  aws: <Server size={20} className="text-yellow-500" />,
-  default: <Code2 size={20} className="text-neutral-500" />
-};
+// const skillIconMap: { [key: string]: React.ReactNode } = {
+//   html: <Code2 size={20} className="text-orange-400" />,
+//   css: <Palette size={20} className="text-blue-400" />,
+//   javascript: <Code2 size={20} className="text-yellow-400" />,
+//   jquery: <Code2 size={20} className="text-blue-500" />,
+//   php: <Server size={20} className="text-indigo-400" />,
+//   laravel: <Server size={20} className="text-red-500" />,
+//   java: <Code2 size={20} className="text-red-400" />,
+//   springboot: <Server size={20} className="text-green-400" />,
+//   mysql: <Server size={20} className="text-blue-600" />,
+//   aws: <Server size={20} className="text-yellow-500" />,
+//   default: <Code2 size={20} className="text-neutral-500" />
+// };
 
 const About = () => {
   const fadeIn = {

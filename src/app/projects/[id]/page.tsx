@@ -1,5 +1,5 @@
 import React from 'react';
-import { projects as projectsData, Project } from '@/data/portfolioData';
+import { projects as projectsData } from '@/data/portfolioData';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, Github, Target, KeyRound, Lightbulb, Workflow, HelpCircle, CheckCircle, Brain, Route } from 'lucide-react'; // Added more icons
@@ -22,7 +22,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ params: { id } })
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-[#1A1D24] text-white p-4">
         <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
-        <p className="mb-8 text-neutral-300">Sorry, we couldn't find the project you were looking for.</p>
+        <p className="mb-8 text-neutral-300">Sorry, we couldnt find the project you were looking for.</p>
         <Link href="/" className="px-6 py-2 bg-[#535C91] text-white rounded-lg hover:bg-[#7E8CE0] transition-colors">
           Go to Homepage
         </Link>
