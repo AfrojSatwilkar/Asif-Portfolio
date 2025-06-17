@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Card3D from '@/components/ui/3d-card';
-import { projects as projectsData, Project } from '@/data/portfolioData';
+import { projects as projectsData } from '@/data/portfolioData';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react'; // Icon for back button
 
