@@ -1,7 +1,7 @@
 {
-  "/_not-found/page": "/_not-found",
   "/api/send-email/route": "/api/send-email",
   "/favicon.ico/route": "/favicon.ico",
+  "/_not-found/page": "/_not-found",
   "/about-details/page": "/about-details",
   "/page": "/",
   "/projects/page": "/projects",

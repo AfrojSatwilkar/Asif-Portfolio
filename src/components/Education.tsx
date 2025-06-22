@@ -18,8 +18,8 @@ const EducationCard = ({ entry, index }: { entry: typeof education[0], index: nu
     >
       <div className="flex items-start space-x-4">
         <div className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center bg-neutral-800/90 border-2 border-cyan-400/50 overflow-hidden">
-          {entry.logoUrl ? (
-            <Image src={entry.logoUrl} alt={`${entry.collegeName} logo`} width={48} height={48} className="object-contain p-1" />
+          {entry.iconUrl ? (
+            <Image src={entry.iconUrl} alt={`${entry.collegeName} logo`} width={48} height={48} className="object-contain p-1" />
           ) : (
             <BookOpen size={32} className="text-cyan-400" />
           )}
