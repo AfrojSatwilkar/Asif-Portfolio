@@ -119,7 +119,7 @@ export const profileData: ProfileData = {
   name: "I'm Asif Patankar,",
   helloTag: "Hi there,",
   welcomeTag: "Welcome to My Tech Haven",
-  title1: "Artificial Intelligence Research Engineer ",
+  title1: "Artificial Intelligence Research Engineer",
   title2: "| Image Processing, Machine Learning, Deep Learning",
   about: "Dynamic AI Research Engineer with 7+ years of experience developing and implementing cutting-edge machine learning models and deep learning solutions. Specialized in computer vision, 3D reconstruction, and embedded AI systems. Proven track record of enhancing model performance, optimizing AI for resource-constrained environments, and delivering impactful technological solutions across multiple industries.",
   about2: "Certified in C, C++, Oracle SQL Development, and Oracle Database Administration, I combine strong programming and database skills with practical software development expertise.",
@@ -247,7 +247,7 @@ export const experiences: ExperiencePoint[] = [
       "Pioneered AI-driven change detection systems leveraging satellite imagery to monitor illegal construction, generating actionable insights for urban planning",
       "Developed custom deep learning algorithms with near-zero false negatives, significantly optimizing accuracy rates in geospatial analysis",
       "Implemented innovative CNN architectures for building segmentation, incorporating edge detection algorithms to enhance shape definition",
-      "Advanced model performance through ensemble learning methodologies, combiningCNN architecture with GAN for improved segmentation results",
+      "Advanced model performance through ensemble learning methodologies, combining CNN architecture with GAN for improved segmentation results",
     ],
   },
   {
@@ -827,11 +827,6 @@ export const socialMediaLinks: SocialMediaLink[] = [
     name: 'linkedin',
     iconUrl: "/images/ln.png", // This iconUrl is NOT used by Contact.tsx's socialIconMap, but keep for other components if needed
     url: "www.linkedin.com/in/asifpatankar",
-  },
-  {
-    name: 'instagram',
-    iconUrl: "/images/instagram.png",
-    url: 'https://www.instagram.com/infamous_fluky/',
   },
   {
     name: 'facebook',

@@ -11,7 +11,7 @@ const Hero = () => {
   const firstName = nameParts.slice(1, nameParts.length - 1).join(" ");
   const lastName = nameParts[nameParts.length - 1];
 
-  const titleWords = (profileData.title1 + ' & ' + profileData.title2).split(' ');
+  const titleWords = (profileData.title1 + ' ' + profileData.title2).split(' ');
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
