@@ -44,13 +44,13 @@
 }
 
 body {
-  cursor: none; /* Hide the default system cursor */
+  /* cursor: none;  Hide the default system cursor */
 }
 
 /* Optional: Hide cursor for specific interactive elements if the custom cursor handles them */
 a,
 button {
-  cursor: none; /* Ensure links and buttons also hide default cursor */
+  /* cursor: none;  Ensure links and buttons also hide default cursor */
 }
 
 /* Keyframes for character stagger animation */

@@ -7,27 +7,27 @@ import Image from 'next/image';
 
 const About = () => {
   const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeInOut" } },
+    hidden: { opacity: 0, y: 15 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" } },
   };
 
   const staggerContainer = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.05,
       },
     },
   };
 
   return (
-    <section id="about" className="relative text-white py-20 md:py-28 bg-transparent overflow-hidden">
+    <section id="about" className="relative text-white py-20 md:py-28 bg-gradient-to-br from-[#1A1D24] via-[#212530] to-[#1A1D24] overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
         >
           {/* Left Column: Image */}

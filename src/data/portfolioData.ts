@@ -826,7 +826,7 @@ export const socialMediaLinks: SocialMediaLink[] = [
   {
     name: 'linkedin',
     iconUrl: "/images/ln.png", // This iconUrl is NOT used by Contact.tsx's socialIconMap, but keep for other components if needed
-    url: "www.linkedin.com/in/asifpatankar",
+    url: "https://www.linkedin.com/in/asifpatankar",
   },
   {
     name: 'facebook',

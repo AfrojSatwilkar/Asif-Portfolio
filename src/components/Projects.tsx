@@ -19,32 +19,32 @@ const Projects: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.05,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         type: 'spring',
-        stiffness: 100,
-        damping: 12
+        stiffness: 120,
+        damping: 15
       },
     },
   };
 
   return (
-    <section id="projects" className="py-20 md:py-28 bg-transparent">
+    <section id="projects" className="py-20 md:py-28 bg-gradient-to-b from-[#1A1D24] via-[#212530] to-[#1A1D24]">
       <div className="container mx-auto px-4">
         <motion.h2 
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.7, ease: "circOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "circOut" }}
           className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-16 md:mb-20 text-center text-white"
         >
           My Creative <span className="text-cyan-400">Portfolio</span>

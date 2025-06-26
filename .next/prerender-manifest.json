@@ -30,30 +30,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/projects": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/projects",
-      "dataRoute": "/projects.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/projects/au-hub-zoom": {
       "experimentalBypassFor": [
         {
@@ -390,7 +366,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/": {
+    "/projects": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -403,8 +379,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/",
-      "dataRoute": "/index.rsc",
+      "srcRoute": "/projects",
+      "dataRoute": "/projects.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -429,6 +405,30 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/about-details",
       "dataRoute": "/about-details.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -468,8 +468,8 @@
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "9b70c04770390526bae48df76ce5e316",
-    "previewModeSigningKey": "38e958fe006325c795d2ff789d6619b04e5c633b61335d00e45d7451611654d3",
-    "previewModeEncryptionKey": "760a7d54810069cb1bd41554acaef8fa5bf5921907437df99aba920f5c92d635"
+    "previewModeId": "86f910e1925e52e46305ee683884b3f7",
+    "previewModeSigningKey": "62bff9f740f1bfd4fb2a8782b5375dbc85eef8931c30b69ac06294e23f5c881f",
+    "previewModeEncryptionKey": "4c3ccf2e9effcbe0a1aa8afcf014757212a17bd68be1235aa51a376581ebfdcb"
   }
 }

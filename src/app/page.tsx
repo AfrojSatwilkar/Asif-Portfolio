@@ -2,7 +2,7 @@
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 // import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 // import SpaceBackground from "@/components/SpaceBackground";
@@ -14,8 +14,10 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
         {/* <SpaceBackground /> */}
-        <NeuralNetworkBackground />
-        <Hero />
+        <div className="relative w-full">
+          <NeuralNetworkBackground />
+          <Hero />
+        </div>
         <div className="relative z-10 w-full">
           <About />
           {/* <Technologies /> */}
@@ -23,7 +25,7 @@ export default function Home() {
           {/* <Projects /> */}
           <Publications />
           <Education />
-          <Contact />
+          <Footer />
         </div>
     </main>
   );

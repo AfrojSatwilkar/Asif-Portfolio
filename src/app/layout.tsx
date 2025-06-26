@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 // import { ParallaxProvider } from 'react-scroll-parallax'; // No longer needed here
-import ParallaxWrapper from "@/components/ParallaxWrapper"; // Import the new wrapper
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ParallaxWrapper>{children}</ParallaxWrapper>
+        {children}
       </body>
     </html>
   );

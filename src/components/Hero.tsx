@@ -8,8 +8,8 @@ import Link from 'next/link';
 
 const Hero = () => {
   const nameParts = profileData.name.replace(",", "").split(" ");
-  const firstName = nameParts.slice(1, nameParts.length - 1).join(" ");
-  const lastName = nameParts[nameParts.length - 1];
+  const firstName = nameParts.slice(1, nameParts.length - 1).join(" ") + " ";
+  const lastName = " " + nameParts[nameParts.length - 1];
 
   const titleWords = (profileData.title1 + ' ' + profileData.title2).split(' ');
 
@@ -70,13 +70,21 @@ const Hero = () => {
                 {char}
               </motion.span>
             ))}
+            <motion.span
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ type: 'spring', stiffness: 100, damping: 20, delay: firstName.length * 0.05 }}
+              className="inline-block"
+            >
+              &nbsp;
+            </motion.span>
             <span className="text-cyan-400">
               {lastName.split('').map((char, index) => (
                 <motion.span
                   key={index}
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ type: 'spring', stiffness: 100, damping: 20, delay: (firstName.length + index) * 0.05 }}
+                  transition={{ type: 'spring', stiffness: 100, damping: 20, delay: (firstName.length + 1 + index) * 0.05 }}
                   className="inline-block"
                 >
                   {char}
